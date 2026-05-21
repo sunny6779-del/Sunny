@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>김혜선 QA Engineer Portfolio Mockup · White Yellow Theme</title>
+  <style>
+    :root {
+      --bg-dark: #18191d;
+      --bg-dark-2: #22242a;
+      --ink: #1e232b;
+      --muted: #6d7480;
+      --line: #dfe4ea;
+      --paper: #ffffff;
+      --soft: #f5f7fa;
+      --blue: #4a98f7;
+      --blue-2: #2d7de0;
+      --blue-soft: #eaf4ff;
+      --violet: #7b4bf2;
+      --success: #2dbb73;
+      --warn: #f1a33c;
+      --danger: #f05858;
+      --radius: 22px;
+      --shadow: 0 24px 70px rgba(13, 36, 61, 0.12);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: #eef2f6;
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 30px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: 58px;
+      background: rgba(24,25,29,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .topbar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    .brand .mark {
+      width: 30px; height: 30px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), #63c1ff);
+      display: grid; place-items: center;
+      color: #fff;
+      font-size: 14px;
+      box-shadow: 0 0 0 4px rgba(74,152,247,0.15);
+    }
+    .nav {
+      display: flex;
+      gap: 2px;
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .nav a {
+      padding: 18px 18px 17px;
+      border-bottom: 3px solid transparent;
+    }
+    .nav a:hover, .nav a.active {
+      color: #fff;
+      border-color: var(--blue);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero {
+      min-height: 720px;
+      background:
+        radial-gradient(circle at 70% 18%, rgba(74,152,247,0.22), transparent 30%),
+        radial-gradient(circle at 22% 72%, rgba(74,152,247,0.13), transparent 34%),
+        var(--bg-dark);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, #000 0%, transparent 92%);
+    }
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.75fr;
+      gap: 60px;
+      align-items: center;
+      min-height: 720px;
+      padding: 86px 30px 80px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      color: rgba(255,255,255,0.78);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      background: rgba(255,255,255,0.05);
+    }
+    .eyebrow::before { content: ""; width: 9px; height: 9px; border-radius: 99px; background: var(--blue); box-shadow: 0 0 0 6px rgba(74,152,247,0.18); }
+    .hero h1 {
+      margin: 24px 0 22px;
+      font-size: clamp(48px, 6.2vw, 88px);
+      line-height: 1.06;
+      letter-spacing: -0.09em;
+      font-weight: 950;
+    }
+    .hero h1 .blue { color: var(--blue); }
+    .hero p {
+      max-width: 640px;
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 18px;
+      word-break: keep-all;
+    }
+    .hero-actions { display: flex; gap: 12px; margin-top: 34px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      border: 1px solid transparent;
+    }
+    .btn.primary { background: var(--blue); color: #fff; box-shadow: 0 14px 35px rgba(74,152,247,0.3); }
+    .btn.ghost { border-color: rgba(255,255,255,0.16); color: rgba(255,255,255,0.82); background: rgba(255,255,255,0.04); }
+
+    .id-card-area { display: flex; justify-content: center; position: relative; min-height: 480px; }
+    .lanyard {
+      position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+      width: 112px; height: 250px;
+      background: linear-gradient(90deg, transparent 0 27px, #0d5bb9 27px 45px, transparent 45px 67px, #164f9a 67px 85px, transparent 85px);
+      opacity: 0.8;
+      clip-path: polygon(12% 0, 42% 0, 58% 100%, 38% 100%, 0 0, 100% 0, 62% 100%, 42% 100%);
+    }
+    .badge {
+      align-self: center;
+      width: 280px;
+      padding: 28px 24px 30px;
+      border-radius: 30px 30px 38px 38px;
+      background: linear-gradient(#fff 0 75%, var(--blue-2) 75% 100%);
+      box-shadow: 0 34px 70px rgba(0,0,0,0.38);
+      transform: rotate(1deg);
+      position: relative;
+    }
+    .badge::before {
+      content: ""; position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
+      width: 78px; height: 14px; border-radius: 99px; background: var(--blue-soft);
+      box-shadow: -72px 0 0 -3px var(--blue-soft), 72px 0 0 -3px var(--blue-soft);
+    }
+    .badge .name { margin-top: 34px; color: #111827; text-align: center; font-weight: 950; font-size: 24px; letter-spacing: -0.05em; }
+    .avatar {
+      width: 128px; height: 128px; margin: 18px auto 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #e7f3ff, #d6e4f5);
+      border: 9px solid #f5fbff;
+      display: grid; place-items: center;
+      color: var(--blue-2);
+      font-weight: 950;
+      font-size: 34px;
+      letter-spacing: -0.05em;
+    }
+    .badge .role { text-align: center; color: #fff; font-weight: 900; padding-top: 4px; font-size: 16px; }
+    .badge .subrole { text-align: center; color: rgba(255,255,255,0.78); font-size: 12px; font-weight: 800; }
+
+    .section-dark {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 82px 0 92px;
+    }
+    .index-title { font-size: 52px; line-height: 1; margin: 0 0 70px; font-weight: 950; letter-spacing: -0.07em; }
+    .index-line {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .index-line::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 25px; height: 2px; background: var(--blue);
+    }
+    .index-item { position: relative; padding: 72px 24px 0 0; min-height: 210px; }
+    .index-no {
+      position: absolute; top: 0; left: 0;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--blue); display: grid; place-items: center;
+      font-weight: 950;
+      box-shadow: 0 0 0 8px rgba(74,152,247,0.09);
+    }
+    .index-item h3 { margin: 0; font-size: 22px; font-weight: 950; letter-spacing: -0.04em; }
+    .index-item p { margin: 7px 0 0; color: rgba(255,255,255,0.62); font-size: 13px; font-weight: 700; }
+    .index-sub { margin-top: 24px; padding-left: 18px; border-left: 6px solid var(--blue); color: rgba(255,255,255,0.85); font-size: 15px; font-weight: 750; line-height: 2; }
+
+    .chapter {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 0;
+      min-height: 460px;
+    }
+    .chapter .wrap {
+      display: grid;
+      grid-template-columns: 0.8fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+      min-height: 460px;
+    }
+    .chapter-num {
+      font-size: clamp(120px, 16vw, 210px);
+      line-height: 0.8;
+      font-weight: 950;
+      letter-spacing: -0.12em;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(255,255,255,0.86);
+    }
+    .chapter-kicker { width: 90px; height: 3px; background: #fff; margin-bottom: 24px; }
+    .chapter-note { color: rgba(255,255,255,0.75); max-width: 360px; font-size: 15px; word-break: keep-all; }
+    .chapter-title { font-size: clamp(44px, 6vw, 74px); line-height: 1.1; font-weight: 950; letter-spacing: -0.08em; margin: 0 0 16px; }
+    .chapter-list { color: rgba(255,255,255,0.8); font-size: 24px; font-weight: 850; letter-spacing: -0.06em; }
+    .chapter-list span { display: block; }
+
+    .page {
+      background: var(--paper);
+      padding: 82px 0;
+      border-bottom: 1px solid #e5eaf0;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 42px;
+      border-bottom: 1px solid #cfd6df;
+      padding-bottom: 22px;
+    }
+    .section-head h2 {
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1.1;
+      font-weight: 950;
+      letter-spacing: -0.08em;
+    }
+    .section-head .meta { color: #8a929d; font-size: 13px; font-weight: 800; text-align: right; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 38px;
+      align-items: stretch;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .panel.pad { padding: 30px; }
+    .statement {
+      font-size: 26px;
+      line-height: 1.28;
+      letter-spacing: -0.06em;
+      font-weight: 950;
+      margin: 0 0 24px;
+      word-break: keep-all;
+    }
+    .statement .blue { color: var(--blue); }
+    .profile-table { border-top: 2px solid #cfd6df; margin-top: 26px; }
+    .profile-row { display: grid; grid-template-columns: 130px 1fr; border-bottom: 1px solid var(--line); min-height: 58px; align-items: center; }
+    .profile-row b { font-weight: 950; color: #222; }
+    .profile-row span { color: #49515c; font-weight: 720; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .chip { padding: 7px 11px; background: var(--blue-soft); color: var(--blue-2); border-radius: 999px; font-size: 12px; font-weight: 900; }
+
+    .timeline { padding: 30px; }
+    .timeline h3, .mini-title { margin: 0 0 18px; font-size: 22px; font-weight: 950; letter-spacing: -0.06em; }
+    .career { display: grid; gap: 14px; }
+    .career-item { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 16px; background: var(--soft); border-radius: 16px; border: 1px solid #e8edf3; }
+    .career-item .date { color: var(--blue-2); font-size: 13px; font-weight: 950; }
+    .career-item .title { font-weight: 950; letter-spacing: -0.04em; }
+    .career-item .desc { color: var(--muted); font-size: 13px; margin-top: 3px; }
+
+    .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .skill-card { padding: 26px; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; box-shadow: 0 14px 45px rgba(28,45,65,0.08); min-height: 210px; }
+    .skill-card .icon { width: 48px; height: 48px; border-radius: 15px; background: var(--blue-soft); color: var(--blue-2); display: grid; place-items: center; font-weight: 950; font-size: 20px; margin-bottom: 24px; }
+    .skill-card h3 { margin: 0 0 12px; font-size: 21px; font-weight: 950; letter-spacing: -0.06em; }
+    .skill-card p { margin: 0; color: #646d78; font-size: 14px; word-break: keep-all; }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 28px 0 38px;
+    }
+    .process-step { position: relative; background: #fff; border: 1px solid #d9e2ec; border-radius: 20px; padding: 24px 18px; box-shadow: 0 14px 45px rgba(28,45,65,0.06); }
+    .process-step::after {
+      content: ""; position: absolute; right: -18px; top: 50%; transform: translateY(-50%);
+      width: 28px; height: 28px; background: var(--blue); clip-path: polygon(0 0, 100% 50%, 0 100%); z-index: 2;
+    }
+    .process-step:last-child::after { display: none; }
+    .process-step .num { color: var(--blue); font-size: 32px; font-weight: 950; line-height: 1; }
+    .process-step h4 { margin: 14px 0 8px; font-size: 18px; letter-spacing: -0.05em; }
+    .process-step p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .kpi { background: var(--bg-dark); color: #fff; padding: 22px; border-radius: 20px; min-height: 128px; }
+    .kpi strong { display:block; font-size: 42px; line-height: 1; letter-spacing: -0.06em; }
+    .kpi span { display:block; margin-top: 11px; color: rgba(255,255,255,0.68); font-size: 13px; font-weight: 800; }
+    .chart-card { padding: 24px; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow); }
+    .bar-row { display: grid; grid-template-columns: 84px 1fr 52px; gap: 14px; align-items: center; margin: 17px 0; font-size: 13px; font-weight: 900; }
+    .bar-track { height: 12px; border-radius: 999px; background: #edf2f7; overflow: hidden; }
+    .bar { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--blue), #71c7ff); }
+    .case-table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 13px; }
+    .case-table th { text-align: left; background: #f0f5fb; color: #374151; font-weight: 950; padding: 12px; border-bottom: 1px solid #dae3ec; }
+    .case-table td { padding: 12px; border-bottom: 1px solid #e8edf3; color: #4c5662; }
+    .badge-status { display:inline-flex; padding: 4px 9px; border-radius: 999px; background: #e8f8ef; color: #15864d; font-weight: 950; font-size: 11px; }
+    .priority { display:inline-flex; padding: 4px 8px; border-radius: 8px; background: #f3f7ff; color: var(--blue-2); font-weight: 950; font-size: 11px; }
+
+    .bug-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .bug-card { border-radius: var(--radius); background: #fff; border: 1px solid #dfe6ef; box-shadow: 0 18px 48px rgba(28,45,65,0.08); overflow: hidden; }
+    .bug-head { padding: 18px 20px; border-bottom: 1px solid #edf1f5; display: flex; justify-content: space-between; align-items: center; background: #fbfcfe; }
+    .bug-key { color: #c23333; font-weight: 950; font-size: 13px; }
+    .bug-priority { padding: 5px 10px; border-radius: 999px; background: #fff4e5; color: #a96400; font-size: 12px; font-weight: 950; }
+    .bug-body { padding: 22px 20px 24px; }
+    .bug-body h3 { margin: 0 0 16px; font-size: 19px; line-height: 1.28; letter-spacing: -0.05em; }
+    .bug-body dl { margin: 0; display: grid; gap: 12px; }
+    .bug-body dt { font-size: 12px; color: var(--blue-2); font-weight: 950; margin-bottom: 3px; }
+    .bug-body dd { margin: 0; color: #5c6570; font-size: 13px; word-break: keep-all; }
+
+    .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .tool { background: #fff; border: 1px solid #dfe6ef; border-radius: 18px; padding: 20px; box-shadow: 0 12px 36px rgba(28,45,65,0.06); }
+    .tool-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 14px; }
+    .tool h3 { margin: 0; font-size: 18px; font-weight: 950; letter-spacing: -0.04em; }
+    .level { color: var(--muted); font-size: 12px; font-weight: 900; }
+    .tool .bar-track { height: 8px; }
+    .tool p { margin: 12px 0 0; color: var(--muted); font-size: 13px; min-height: 40px; }
+
+    .roadmap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-top: 30px; }
+    .roadmap-item { background: #fff; border: 1px solid #dfe6ef; border-radius: var(--radius); padding: 26px; box-shadow: 0 14px 45px rgba(28,45,65,0.06); position: relative; overflow: hidden; }
+    .roadmap-item::before { content:""; position:absolute; top:0; left:0; width:7px; height:100%; background: var(--blue); }
+    .roadmap-item .step { color: var(--blue); font-weight: 950; font-size: 13px; margin-bottom: 12px; }
+    .roadmap-item h3 { margin: 0 0 12px; font-size: 22px; letter-spacing: -0.06em; }
+    .roadmap-item p { margin: 0; color: var(--muted); font-size: 14px; word-break: keep-all; }
+    .cta-box { margin-top: 38px; border: 2px solid var(--blue); border-radius: var(--radius); padding: 28px; background: linear-gradient(135deg, #fff, #f3f9ff); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 20px; }
+    .cta-box h3 { margin: 0 0 7px; font-size: 26px; font-weight: 950; letter-spacing: -0.06em; }
+    .cta-box p { margin: 0; color: var(--muted); }
+
+    footer { background: var(--bg-dark); color: rgba(255,255,255,0.62); padding: 36px 0; font-size: 13px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: 0.7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .hero-inner, .about-grid, .dashboard, .chapter .wrap, .cta-box { grid-template-columns: 1fr; }
+      .hero-inner { min-height: auto; padding-top: 70px; }
+      .id-card-area { min-height: 360px; }
+      .index-line, .cards-3, .process, .bug-grid, .tools-grid, .roadmap { grid-template-columns: 1fr; }
+      .index-line::before, .process-step::after { display: none; }
+      .index-item { min-height: auto; padding-top: 65px; }
+      .section-head { grid-template-columns: 1fr; }
+      .section-head .meta { text-align: left; }
+      .career-item { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media print {
+      .topbar { position: static; }
+      .hero { min-height: auto; }
+      .page, .section-dark, .chapter { break-inside: avoid; }
+      body { background: #fff; }
+    }
+
+
+    /* White & Yellow Theme Override */
+    :root {
+      --bg-dark: #fff9e8;
+      --bg-dark-2: #fff3c7;
+      --ink: #221a08;
+      --muted: #7b6d52;
+      --line: #f0dfaa;
+      --paper: #fffefa;
+      --soft: #fff8df;
+      --blue: #f6c343;
+      --blue-2: #d99a00;
+      --blue-soft: #fff0b8;
+      --violet: #c88a00;
+      --success: #2f9d62;
+      --warn: #e7a700;
+      --danger: #d9544d;
+      --shadow: 0 24px 70px rgba(136, 101, 12, 0.13);
+    }
+
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 82% 8%, rgba(246,195,67,0.20), transparent 28%),
+        linear-gradient(180deg, #fffdf6 0%, #fff8df 100%);
+    }
+
+    .topbar {
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(217, 154, 0, 0.18);
+      box-shadow: 0 8px 24px rgba(136, 101, 12, 0.06);
+    }
+    .brand { color: #251c07; }
+    .brand .mark {
+      color: #2a2008;
+      background: linear-gradient(135deg, #ffd75d, #f2a900);
+      box-shadow: 0 0 0 4px rgba(246,195,67,0.24);
+    }
+    .nav { color: #7a6a45; }
+    .nav a:hover, .nav a.active {
+      color: #1f1706;
+      border-color: var(--blue);
+      background: rgba(246,195,67,0.16);
+    }
+
+    .hero {
+      color: #211907;
+      background:
+        radial-gradient(circle at 70% 18%, rgba(246,195,67,0.34), transparent 31%),
+        radial-gradient(circle at 20% 76%, rgba(255,220,112,0.22), transparent 34%),
+        linear-gradient(145deg, #fffefa 0%, #fff7db 58%, #ffffff 100%);
+      border-bottom: 1px solid rgba(217,154,0,0.18);
+    }
+    .hero::before {
+      background-image:
+        linear-gradient(rgba(217,154,0,0.065) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217,154,0,0.065) 1px, transparent 1px);
+      mask-image: linear-gradient(to bottom, #000 0%, transparent 96%);
+    }
+    .eyebrow {
+      color: #7a5a00;
+      border-color: rgba(217,154,0,0.22);
+      background: rgba(255,255,255,0.72);
+      box-shadow: 0 10px 30px rgba(136,101,12,0.06);
+    }
+    .eyebrow::before { background: var(--blue); box-shadow: 0 0 0 6px rgba(246,195,67,0.22); }
+    .hero h1 .blue, .statement .blue { color: #e0a400; }
+    .hero p { color: #64583e; }
+    .btn.primary {
+      background: linear-gradient(135deg, #ffd75d, #f2ad00);
+      color: #221a08;
+      border-color: rgba(217,154,0,0.22);
+      box-shadow: 0 14px 35px rgba(217,154,0,0.24);
+    }
+    .btn.ghost {
+      border-color: rgba(217,154,0,0.30);
+      color: #3b2b08;
+      background: rgba(255,255,255,0.74);
+      box-shadow: 0 10px 28px rgba(136,101,12,0.06);
+    }
+    .btn.download {
+      min-height: 48px;
+      padding: 0 22px;
+      background: #fff;
+      color: #2b2108;
+      border: 1px solid rgba(217,154,0,0.35);
+      box-shadow: 0 14px 34px rgba(136,101,12,0.10);
+    }
+    .btn.download.primary-download {
+      background: linear-gradient(135deg, #ffd75d, #f2ad00);
+      border-color: rgba(217,154,0,0.32);
+      box-shadow: 0 14px 36px rgba(217,154,0,0.24);
+    }
+    .download-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: -22px 0 34px;
+    }
+
+    .lanyard {
+      background: linear-gradient(90deg, transparent 0 27px, #e0a400 27px 45px, transparent 45px 67px, #f6c343 67px 85px, transparent 85px);
+    }
+    .badge {
+      background: linear-gradient(#fff 0 75%, #f2ad00 75% 100%);
+      box-shadow: 0 34px 70px rgba(136,101,12,0.22);
+      border: 1px solid rgba(217,154,0,0.18);
+    }
+    .badge::before {
+      background: #fff1bb;
+      box-shadow: -72px 0 0 -3px #fff1bb, 72px 0 0 -3px #fff1bb;
+    }
+    .avatar {
+      background: linear-gradient(135deg, #fff9e6, #ffe28c);
+      border-color: #fff7d5;
+      color: #c48700;
+    }
+
+    .section-dark,
+    .chapter {
+      color: #241b07;
+      background:
+        radial-gradient(circle at 78% 12%, rgba(246,195,67,0.18), transparent 26%),
+        linear-gradient(180deg, #fffefa 0%, #fff8df 100%);
+      border-bottom: 1px solid rgba(217,154,0,0.18);
+    }
+    .index-line::before { background: var(--blue); }
+    .index-no {
+      color: #241b07;
+      background: linear-gradient(135deg, #ffd75d, #f2ad00);
+      box-shadow: 0 0 0 8px rgba(246,195,67,0.16);
+    }
+    .index-item p { color: #756849; }
+    .index-sub { border-left-color: var(--blue); color: #3f3215; }
+    .chapter-num { -webkit-text-stroke: 2px rgba(224,164,0,0.74); }
+    .chapter-kicker { background: #f2ad00; }
+    .chapter-note { color: #6a5d40; }
+    .chapter-title { color: #241b07; }
+    .chapter-list { color: #4a3a15; }
+
+    .page {
+      background: var(--paper);
+      border-bottom: 1px solid rgba(217,154,0,0.16);
+    }
+    .section-head { border-bottom-color: rgba(217,154,0,0.28); }
+    .section-head h2 { color: #d99a00; }
+    .section-head .meta { color: #8b784d; }
+    .panel,
+    .skill-card,
+    .process-step,
+    .chart-card,
+    .bug-card,
+    .tool,
+    .roadmap-item {
+      background: #fff;
+      border-color: rgba(217,154,0,0.22);
+      box-shadow: 0 16px 46px rgba(136,101,12,0.09);
+    }
+    .profile-table { border-top-color: rgba(217,154,0,0.34); }
+    .profile-row { border-bottom-color: rgba(217,154,0,0.18); }
+    .profile-row span, .skill-card p, .case-table td, .bug-body dd { color: #62563d; }
+    .chip,
+    .skill-card .icon {
+      background: #fff0b8;
+      color: #b77800;
+    }
+    .career-item {
+      background: #fff9e6;
+      border-color: rgba(217,154,0,0.20);
+    }
+    .career-item .date { color: #c48700; }
+
+    .process-step::after { background: #f2ad00; }
+    .process-step .num { color: #d99a00; }
+    .kpi {
+      background: linear-gradient(135deg, #ffd75d, #f2ad00);
+      color: #241b07;
+      box-shadow: 0 16px 40px rgba(217,154,0,0.18);
+    }
+    .kpi span { color: rgba(36,27,7,0.70); }
+    .bar-track { background: #fff1bf; }
+    .bar { background: linear-gradient(90deg, #e5a400, #ffd75d); }
+    .case-table th {
+      background: #fff3c8;
+      color: #3b2b08;
+      border-bottom-color: rgba(217,154,0,0.26);
+    }
+    .case-table td { border-bottom-color: rgba(217,154,0,0.16); }
+    .badge-status { background: #eaf8ef; color: #167449; }
+    .priority { background: #fff0b8; color: #b77800; }
+    .bug-head {
+      background: #fff8df;
+      border-bottom-color: rgba(217,154,0,0.18);
+    }
+    .bug-key { color: #b66b00; }
+    .bug-priority { background: #fff0b8; color: #8a5a00; }
+    .bug-body dt { color: #c48700; }
+    .roadmap-item::before { background: #f2ad00; }
+    .roadmap-item .step { color: #c48700; }
+    .cta-box {
+      border-color: #f2ad00;
+      background: linear-gradient(135deg, #fff, #fff4cc);
+    }
+    footer {
+      background: #fff8df;
+      color: #6c5e3e;
+      border-top: 1px solid rgba(217,154,0,0.18);
+    }
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top"><span class="mark">QA</span><span>HYESUN KIM</span></a>
+      <nav class="nav" aria-label="Portfolio sections">
+        <a href="#about" class="active">About Me</a>
+        <a href="#qa">QA Experience</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#tools">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">SOFTWARE TESTING ENGINEER PORTFOLIO</div>
+          <h1>사용자 관점으로<br><span class="blue">흐름을 검증하는</span><br>QA 엔지니어입니다.</h1>
+          <p>금융·물류·카드 서비스 개발 경험을 기반으로 요구사항을 이해하고, 재현 가능한 테스트케이스와 Jira 스타일 결함 리포트로 협업 가능한 QA 산출물을 만듭니다.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#portfolio">포트폴리오 보기</a>
+            <a class="btn ghost" href="#tools">보유 도구 확인</a>
+          </div>
+        </div>
+        <div class="id-card-area reveal" aria-label="ID card style visual">
+          <div class="lanyard"></div>
+          <div class="badge">
+            <div class="name">김혜선</div>
+            <div class="avatar">KH</div>
+            <div class="role">QA Engineer</div>
+            <div class="subrole">SW Tester · Test Design · Bug Report</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" aria-labelledby="index-title">
+      <div class="wrap reveal">
+        <h2 id="index-title" class="index-title">INDEX</h2>
+        <div class="index-line">
+          <a class="index-item" href="#about"><span class="index-no">1</span><h3>About Me</h3><p>자기소개</p><div class="index-sub">기본 정보<br>경력 전환<br>핵심 역량</div></a>
+          <a class="index-item" href="#qa"><span class="index-no">2</span><h3>QA Experience</h3><p>테스트 수행 역량</p><div class="index-sub">QA 프로세스<br>테스트 설계<br>결함 리포팅</div></a>
+          <a class="index-item" href="#portfolio"><span class="index-no">3</span><h3>Portfolio</h3><p>산출물 경험</p><div class="index-sub">테스트케이스<br>대시보드<br>버그 리포트</div></a>
+          <a class="index-item" href="#tools"><span class="index-no">4</span><h3>Tools</h3><p>도구 활용</p><div class="index-sub">Jira / Excel<br>Postman / SQL<br>Playwright</div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>준비된 전환형<br>QA 지원자 김혜선입니다.</h2>
+          <div class="meta">01. About Me · Profile</div>
+        </div>
+        <div class="about-grid">
+          <article class="panel pad reveal">
+            <p class="statement">개발자로 쌓은 서비스 이해력을 바탕으로 <span class="blue">사용자 흐름·예외 상황·결함 재현성</span>을 검증하는 QA 엔지니어를 지향합니다.</p>
+            <p style="color:#626b76; margin:0; word-break:keep-all;">지점 상담 예약, 번호표 발행, 내역 조회/도착 등록처럼 실제 사용자가 거치는 화면 흐름을 기준으로 테스트케이스를 작성하고, 기대 결과와 실제 결과가 명확히 비교되는 결함 리포트를 구성합니다.</p>
+            <div class="profile-table">
+              <div class="profile-row"><b>이름</b><span>김혜선</span></div>
+              <div class="profile-row"><b>지원 분야</b><span>QA 엔지니어 / SW 테스터</span></div>
+              <div class="profile-row"><b>이메일</b><span>sunny_78@naver.com</span></div>
+              <div class="profile-row"><b>학력</b><span>숭실대학교 정보과학대학원 소프트웨어 공학</span></div>
+              <div class="profile-row"><b>자격</b><span>정보처리기사 · 정보처리산업기사 · 정보기기운용기능사</span></div>
+            </div>
+            <div class="chips" aria-label="Core keywords">
+              <span class="chip">Test Case Design</span><span class="chip">Bug Reporting</span><span class="chip">Financial Service</span><span class="chip">User Flow QA</span><span class="chip">Developer Background</span>
+            </div>
+          </article>
+          <aside class="panel timeline reveal">
+            <h3>Career Track</h3>
+            <div class="career">
+              <div class="career-item"><div class="date">2022.08 ~ 2024.05</div><div><div class="title">KB 국민은행</div><div class="desc">스타뱅킹 개발 및 유지보수 경험</div></div></div>
+              <div class="career-item"><div class="date">2021.10 ~ 2022.07</div><div><div class="title">삼성카드</div><div class="desc">홈페이지 개발 및 유지보수 경험</div></div></div>
+              <div class="career-item"><div class="date">2020.06 ~ 2021.09</div><div><div class="title">CJ 대한통운</div><div class="desc">물류 시스템 개발 및 운영 환경 경험</div></div></div>
+              <div class="career-item"><div class="date">2010.12 ~ 2016.09</div><div><div class="title">롯데멤버스</div><div class="desc">카드·멤버스 시스템 개발 경험</div></div></div>
+              <div class="career-item"><div class="date">1997.10 ~ 2010.10</div><div><div class="title">공공/금융/민원 시스템</div><div class="desc">다수 행정·민원 시스템 개발 및 유지보수</div></div></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>교육 / 자격 / 수료</h2>
+          <div class="meta">01. About Me · Education & Certifications</div>
+        </div>
+        <div class="chart-card reveal">
+          <h3 class="mini-title">Education & Certifications</h3>
+          <table class="case-table" aria-label="Education and certification table">
+            <thead><tr><th>기간</th><th>기관/과정</th><th>내용</th><th>비고</th></tr></thead>
+            <tbody>
+              <tr><td>2026.03 ~ 2026.06</td><td>SW 테스팅 교육과정</td><td>테스트 설계, 결함 리포트, 기초, 실습 프로젝트</td><td>수료예정</td></tr>
+              <tr><td>2015.02</td><td>숭실대학교 정보과학대학원</td><td>소프트웨어 공학</td><td>졸업</td></tr>
+              <tr><td>2003.12</td><td>한국산업인력공단</td><td>정보처리기사</td><td>취득</td></tr>
+              <tr><td>2002.08</td><td>한국산업인력공단</td><td>정보처리산업기사</td><td>취득</td></tr>
+              <tr><td>2002.04</td><td>한국산업인력공단</td><td>정보기기운용기능사</td><td>취득</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>개발 경험에서 QA 강점으로<br>이어지는 역량입니다.</h2>
+          <div class="meta">01. About Me · Strength</div>
+        </div>
+        <div class="cards-3">
+          <article class="skill-card reveal"><div class="icon">01</div><h3>요구사항 이해</h3><p>서비스 구조와 화면 흐름을 개발 관점에서 읽고, 사용자가 실제로 마주할 정상/예외 조건을 테스트 관점으로 재구성합니다.</p></article>
+          <article class="skill-card reveal"><div class="icon">02</div><h3>재현 가능한 문서화</h3><p>테스트 Step, Test Data, Expected Result를 분리하여 리뷰와 재수행이 쉬운 테스트케이스 형태로 정리합니다.</p></article>
+          <article class="skill-card reveal"><div class="icon">03</div><h3>협업형 결함 보고</h3><p>Jira 스타일로 환경, 상세 현상, 발생 빈도, 재현 스텝, 기대 결과를 정리하여 개발자가 빠르게 원인을 추적할 수 있게 합니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="qa">
+      <div class="wrap reveal">
+        <div>
+          <div class="chapter-num">02</div>
+          <div class="chapter-kicker"></div>
+          <p class="chapter-note">개발 경험을 바탕으로 실제 서비스 플로우를 분석하고, 테스트 설계·실행·결함 관리 흐름을 산출물로 보여주는 영역입니다.</p>
+        </div>
+        <div>
+          <h2 class="chapter-title">QA EXPERIENCE</h2>
+          <div class="chapter-list"><span>테스트 설계</span><span>결함 리포팅</span><span>결과 대시보드</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>QA 수행 프로세스</h2>
+          <div class="meta">02. QA Experience · Process</div>
+        </div>
+        <div class="process reveal">
+          <div class="process-step"><div class="num">01</div><h4>요구사항 분석</h4><p>서비스 기능, 사용자 흐름, 상태값 기준 확인</p></div>
+          <div class="process-step"><div class="num">02</div><h4>TC 설계</h4><p>Positive/Negative/Exception 케이스 구성</p></div>
+          <div class="process-step"><div class="num">03</div><h4>테스트 실행</h4><p>Step 단위 수행, Actual Result 기록</p></div>
+          <div class="process-step"><div class="num">04</div><h4>결함 리포트</h4><p>재현 스텝, 기대/실제 결과, 영향도 정리</p></div>
+          <div class="process-step"><div class="num">05</div><h4>회귀 확인</h4><p>수정 후 동일 조건 재검증 및 상태 관리</p></div>
+        </div>
+        <div class="cards-3">
+          <article class="skill-card reveal"><div class="icon">A</div><h3>기능 테스트</h3><p>예약 등록, 취소, 도착 등록, 내 번호표 보기처럼 사용자 핵심 업무 흐름의 정상 동작 여부 확인</p></article>
+          <article class="skill-card reveal"><div class="icon">B</div><h3>예외/오류 테스트</h3><p>네트워크 오류, 세션 만료, 중복 예약, 예약 불가 시간 등 실패 조건에서의 메시지와 상태 처리 검증</p></article>
+          <article class="skill-card reveal"><div class="icon">C</div><h3>상태 기반 테스트</h3><p>예약 완료, 취소 완료, 도착 등록 완료 등 상태값 변화에 따른 버튼 노출과 화면 갱신 검증</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="portfolio">
+      <div class="wrap reveal">
+        <div>
+          <div class="chapter-num">03</div>
+          <div class="chapter-kicker"></div>
+          <p class="chapter-note">KB국민은행 지점상담예약·번호표발행 서비스 흐름을 기반으로 작성한 테스트케이스, 테스트 결과 대시보드, Jira 형식 버그 리포트를 요약합니다.</p>
+        </div>
+        <div>
+          <h2 class="chapter-title">PORTFOLIO</h2>
+          <div class="chapter-list"><span>Test Case</span><span>Dashboard</span><span>Bug Report</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>KB 국민은행 테스트케이스<br>수행 결과 요약</h2>
+          <div class="meta">03. Portfolio · Test Result Dashboard</div>
+        </div>
+        <div class="download-actions reveal">
+          <a class="btn download primary-download" href="https://docs.google.com/spreadsheets/d/1DqmNm2BcZotCO76U2zrs9o-Qio55zVX6/edit?usp=sharing&ouid=112604746338745942261&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" aria-label="테스트 케이스 파일 다운로드">테스트 케이스 다운로드</a>
+        </div>
+        <div class="dashboard">
+          <div class="kpi-grid reveal">
+            <div class="kpi"><strong>51</strong><span>총 테스트 케이스</span></div>
+            <div class="kpi"><strong>117</strong><span>총 테스트 Step</span></div>
+            <div class="kpi"><strong>100%</strong><span>Case PASS율</span></div>
+            <div class="kpi"><strong>8/8</strong><span>P0 핵심 플로우 PASS</span></div>
+          </div>
+          <div class="chart-card reveal">
+            <h3 class="mini-title">Priority Quality Matrix</h3>
+            <div class="bar-row"><span>P0</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span>100%</span></div>
+            <div class="bar-row"><span>P1</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span>100%</span></div>
+            <div class="bar-row"><span>P2</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span>100%</span></div>
+            <table class="case-table" aria-label="Sample test case table">
+              <thead><tr><th>Test Key</th><th>시나리오</th><th>Feature</th><th>Priority</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>KB-BR-001</td><td>상담 예약 정상 등록</td><td>상담예약</td><td><span class="priority">P0</span></td><td><span class="badge-status">PASS</span></td></tr>
+                <tr><td>KB-BR-010</td><td>네트워크 오류 발생 시 예외 처리</td><td>상담예약</td><td><span class="priority">P1</span></td><td><span class="badge-status">PASS</span></td></tr>
+                <tr><td>KB-BR-015</td><td>지점 도착등록 정상 처리</td><td>내역조회/도착등록</td><td><span class="priority">P0</span></td><td><span class="badge-status">PASS</span></td></tr>
+                <tr><td>KB-BR-022</td><td>예약취소 정상 처리</td><td>내역조회/도착등록</td><td><span class="priority">P0</span></td><td><span class="badge-status">PASS</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Jira 스타일 예상 결함<br>리포트 샘플</h2>
+          <div class="meta">03. Portfolio · Bug Report</div>
+        </div>
+        <div class="download-actions reveal">
+          <a class="btn download primary-download" href="https://drive.google.com/file/d/1IvTk0Tjfe1Hc3oM4AfC6VrSvct5-m7Bt/view?usp=sharin" target="_blank" rel="noopener noreferrer" aria-label="버그 리포트 파일 다운로드">버그 리포트 다운로드</a>
+        </div>
+        <div class="bug-grid">
+          <article class="bug-card reveal">
+            <div class="bug-head"><span class="bug-key">KAN-8</span><span class="bug-priority">Medium</span></div>
+            <div class="bug-body"><h3>번호표 발행 후 내 번호표 보기 화면에서 동일 번호표 중복 노출</h3><dl><div><dt>환경</dt><dd>iOS 17 · iPhone 14 · LTE</dd></div><div><dt>위험</dt><dd>실제 발행 번호표가 여러 건인 것처럼 오인 가능</dd></div><div><dt>기대 결과</dt><dd>새로고침 후에도 발행된 번호표는 1건만 표시</dd></div></dl></div>
+          </article>
+          <article class="bug-card reveal">
+            <div class="bug-head"><span class="bug-key">KAN-9</span><span class="bug-priority">Medium</span></div>
+            <div class="bug-body"><h3>네트워크 오류 상태에서 새로고침 시 로딩이 종료되지 않음</h3><dl><div><dt>환경</dt><dd>Android 14 · Galaxy S23 · 불안정 Wi-Fi</dd></div><div><dt>위험</dt><dd>앱이 멈춘 것으로 인식되어 재실행 필요 가능</dd></div><div><dt>기대 결과</dt><dd>일정 시간 후 로딩 종료 및 오류 안내 메시지 표시</dd></div></dl></div>
+          </article>
+          <article class="bug-card reveal">
+            <div class="bug-head"><span class="bug-key">KAN-10</span><span class="bug-priority">Medium</span></div>
+            <div class="bug-body"><h3>취소 완료 상태의 예약 건에 지점 도착 등록 버튼 노출</h3><dl><div><dt>환경</dt><dd>iOS 17 · iPhone 14 · Wi-Fi</dd></div><div><dt>위험</dt><dd>취소된 예약에 대해 도착 등록을 시도할 수 있음</dd></div><div><dt>기대 결과</dt><dd>취소 완료 예약에는 도착 등록 버튼 미노출</dd></div></dl></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="tools">
+      <div class="wrap reveal">
+        <div>
+          <div class="chapter-num">04</div>
+          <div class="chapter-kicker"></div>
+          <p class="chapter-note">현재 활용 수준은 중간 단계로 설정하고, 실무 투입을 위한 문서화·결함 관리·API 확인·자동화 기초 역량을 중심으로 표현했습니다.</p>
+        </div>
+        <div>
+          <h2 class="chapter-title">TOOLS</h2>
+          <div class="chapter-list"><span>Manual QA</span><span>API / DB</span><span>Automation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>도구 활용 경험</h2>
+          <div class="meta">04. Tools · Intermediate Level</div>
+        </div>
+        <div class="tools-grid">
+          <article class="tool reveal"><div class="tool-head"><h3>Excel</h3><span class="level">Intermediate</span></div><div class="bar-track"><div class="bar" style="width:68%"></div></div><p>테스트케이스, 체크리스트, 대시보드 정리</p></article>
+          <article class="tool reveal"><div class="tool-head"><h3>Jira</h3><span class="level">Intermediate</span></div><div class="bar-track"><div class="bar" style="width:66%"></div></div><p>결함 등록, 상태 관리, 재현 스텝 문서화</p></article>
+          <article class="tool reveal"><div class="tool-head"><h3>Postman</h3><span class="level">Intermediate</span></div><div class="bar-track"><div class="bar" style="width:62%"></div></div><p>API 요청/응답 확인 및 기본 검증</p></article>
+          <article class="tool reveal"><div class="tool-head"><h3>Git / Github</h3><span class="level">Intermediate</span></div><div class="bar-track"><div class="bar" style="width:64%"></div></div><p>버전 관리, 산출물 관리, 협업 흐름 이해</p></article>
+          <article class="tool reveal"><div class="tool-head"><h3>Jenkins</h3><span class="level">Intermediate</span></div><div class="bar-track"><div class="bar" style="width:58%"></div></div><p>빌드/배포 파이프라인과 CI 흐름 이해</p></article>
+          <article class="tool reveal"><div class="tool-head"><h3>Playwright</h3><span class="level">Intermediate</span></div><div class="bar-track"><div class="bar" style="width:60%"></div></div><p>웹 UI 자동화 테스트의 기본 구조 이해</p></article>
+          <article class="tool reveal"><div class="tool-head"><h3>SQL</h3><span class="level">Intermediate</span></div><div class="bar-track"><div class="bar" style="width:65%"></div></div><p>데이터 조회, 테스트 데이터 확인</p></article>
+          <article class="tool reveal"><div class="tool-head"><h3>ADB</h3><span class="level">Intermediate</span></div><div class="bar-track"><div class="bar" style="width:57%"></div></div><p>모바일 디바이스 연결, 로그/환경 확인</p></article>
+          <article class="tool reveal"><div class="tool-head"><h3>JAVA / JSP</h3><span class="level">Intermediate</span></div><div class="bar-track"><div class="bar" style="width:70%"></div></div><p>기존 개발 경험 기반의 코드/서비스 구조 이해</p></article>
+        </div>
+      </div>
+    </section>
+</main>
+
+  <footer>
+    <div class="wrap">
+      <span>김혜선 · QA Engineer / SW Tester Portfolio Mockup</span>
+      <span>Designed for static web portfolio prototype</span>
+    </div>
+  </footer>
+
+  <script>
+    const navLinks = [...document.querySelectorAll('.nav a')];
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const onScroll = () => {
+      const y = window.scrollY + 120;
+      let current = navLinks[0];
+      sections.forEach((s, i) => { if (s.offsetTop <= y) current = navLinks[i]; });
+      navLinks.forEach(a => a.classList.toggle('active', a === current));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
