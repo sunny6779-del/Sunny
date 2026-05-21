@@ -275,6 +275,24 @@
     }
     .section-head .meta { color: #8a929d; font-size: 13px; font-weight: 800; text-align: right; }
 
+    .mobile-text {
+  display: none;
+}
+
+.pc-text {
+  display: inline;
+}
+
+@media (max-width: 640px) {
+  .pc-text {
+    display: none;
+  }
+
+  .mobile-text {
+    display: inline;
+  }
+}
+    
     .about-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -882,7 +900,10 @@
     <section class="page">
       <div class="wrap">
         <div class="section-head reveal">
-          <h2>개발 경험에서 QA 강점으로 이어지는 역량입니다.</h2>
+        
+          <span class="pc-text">개발 경험에서 QA 강점으로 이어지는<br> 역량입니다.</span>
+          <span class="mobile-text">개발 경험에서 QA 강점으로<br> 이어지는 역량입니다.</span>
+          
           <div class="meta">01. About Me · Strength</div>
         </div>
         <div class="cards-3">
