@@ -287,6 +287,120 @@
   white-space: nowrap;
 }
 
+
+  @media (max-width: 640px) {
+  /* Education 표 - 모바일 카드형 */
+  .education-table thead {
+    display: none;
+  }
+
+  .education-table,
+  .education-table tbody,
+  .education-table tr,
+  .education-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .education-table tr {
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff;
+  }
+
+  .education-table td {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: none;
+    text-align: left;
+    white-space: normal;
+    font-size: 13px;
+  }
+
+  .education-table td::before {
+    content: attr(data-label);
+    font-weight: 900;
+    color: #222;
+    white-space: nowrap;
+  }
+
+  /* Test Case 표 - 모바일 카드형 */
+  .test-table thead {
+    display: none;
+  }
+
+  .test-table,
+  .test-table tbody,
+  .test-table tr,
+  .test-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .test-table tr {
+    margin-bottom: 12px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff;
+  }
+
+  .test-table td {
+    border: none;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .test-table td:nth-child(1) {
+    font-size: 12px;
+    font-weight: 800;
+    color: #777;
+    margin-bottom: 5px;
+  }
+
+  .test-table td:nth-child(2) {
+    font-size: 14px;
+    font-weight: 900;
+    color: #222;
+    margin-bottom: 6px;
+    line-height: 1.45;
+  }
+
+  .test-table td:nth-child(3) {
+    font-size: 12px;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .test-table td:nth-child(4),
+  .test-table td:nth-child(5) {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    margin-right: 6px;
+    margin-top: 2px;
+  }
+
+  .test-table .priority,
+  .test-table .badge-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    padding: 4px 8px;
+    font-size: 11px;
+    line-height: 1;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+}
+    
 @media (max-width: 640px) {
   .pc-text {
     display: none;
@@ -395,7 +509,7 @@
     .bar-row { display: grid; grid-template-columns: 84px 1fr 52px; gap: 14px; align-items: center; margin: 17px 0; font-size: 13px; font-weight: 900; }
     .bar-track { height: 12px; border-radius: 999px; background: #edf2f7; overflow: hidden; }
     .bar { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--blue), #71c7ff); }
-    /* 공통 표 스타일 */
+   /* 공통 표 스타일 */
     .case-table {
       width: 100%;
       border-collapse: collapse;
@@ -431,7 +545,7 @@
       border-bottom: none;
     }
     
-    /* Education 표 - PC */
+    /* Education 표 - 웹 */
     .education-table th:nth-child(1),
     .education-table td:nth-child(1) {
       width: 22%;
@@ -455,7 +569,7 @@
       white-space: nowrap;
     }
     
-    /* Test Case 표 - PC */
+    /* Test Case 표 - 웹 */
     .test-table th:nth-child(1),
     .test-table td:nth-child(1) {
       width: 18%;
@@ -485,104 +599,6 @@
       text-align: center;
       white-space: nowrap;
     }
-
-    @media (max-width: 640px) {
-  .case-table {
-    font-size: 12px;
-  }
-
-  .case-table th,
-  .case-table td {
-    padding: 9px 7px;
-    line-height: 1.35;
-  }
-
-  /* Education 표는 모바일에서 카드형 */
-  .education-table thead {
-    display: none;
-  }
-
-  .education-table,
-  .education-table tbody,
-  .education-table tr,
-  .education-table td {
-    display: block;
-    width: 100%;
-  }
-
-  .education-table tr {
-    margin-bottom: 12px;
-    padding: 12px 14px;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    background: #fff;
-  }
-
-  .education-table td {
-    display: grid;
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: 8px;
-    padding: 5px 0;
-    border-bottom: none;
-    text-align: left;
-    white-space: normal;
-  }
-
-  .education-table td::before {
-    content: attr(data-label);
-    font-weight: 900;
-    color: #222;
-    white-space: nowrap;
-  }
-
-  /* Test Case 표는 모바일에서도 표 형태 유지 */
-  .test-table {
-    table-layout: fixed;
-    font-size: 11px;
-  }
-
-  .test-table th,
-  .test-table td {
-    padding: 8px 4px;
-    text-align: center;
-    word-break: keep-all;
-  }
-
-  .test-table th:nth-child(1),
-  .test-table td:nth-child(1) {
-    width: 22%;
-  }
-
-  .test-table th:nth-child(2),
-  .test-table td:nth-child(2) {
-    width: 30%;
-    text-align: left;
-  }
-
-  .test-table th:nth-child(3),
-  .test-table td:nth-child(3) {
-    width: 22%;
-  }
-
-  .test-table th:nth-child(4),
-  .test-table td:nth-child(4) {
-    width: 13%;
-  }
-
-  .test-table th:nth-child(5),
-  .test-table td:nth-child(5) {
-    width: 13%;
-  }
-
-  .priority,
-  .badge-status {
-    font-size: 10px;
-    padding: 3px 6px;
-    white-space: nowrap;
-  }
-}
-
-    
 }
 
     .bug-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
