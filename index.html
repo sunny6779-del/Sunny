@@ -275,12 +275,16 @@
     }
     .section-head .meta { color: #8a929d; font-size: 13px; font-weight: 800; text-align: right; }
 
-    .mobile-text {
+   .mobile-text {
   display: none;
 }
 
 .pc-text {
   display: inline;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 @media (max-width: 640px) {
@@ -901,8 +905,13 @@
       <div class="wrap">
         <div class="section-head reveal">
         
-          <h2><span class="pc-text">개발 경험에서 QA 강점으로 이어지는<br> 역량입니다.</span></h2>
-          <h2><span class="mobile-text">개발 경험에서 QA 강점으로 이어지는 역량입니다.</span></h2>
+          <h2>
+            <span class="pc-text">개발 경험에서 QA 강점으로 이어지는<br>역량입니다.</span>
+            <span class="mobile-text">
+              개발 경험에서 <span class="nowrap">QA 강점으로</span><br>
+              이어지는 역량입니다.
+            </span>
+          </h2>
           
           <div class="meta">01. About Me · Strength</div>
         </div>
