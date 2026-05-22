@@ -921,7 +921,16 @@
         white-space: nowrap;
         box-sizing: border-box;
       }
-    //}
+
+      .mobile-only-br {
+        display: none;
+      }
+      
+      @media (max-width: 640px) {
+        .mobile-only-br {
+          display: block;
+        }
+      }
     }
   </style>
 </head>
@@ -988,7 +997,7 @@
               <div class="profile-row"><b>이름</b><span>김혜선</span></div>
               <div class="profile-row"><b>지원 분야</b><span>QA 엔지니어 / SW 테스터</span></div>
               <div class="profile-row"><b>이메일</b><span>sunny_78@naver.com</span></div>
-              <div class="profile-row"><b>학력</b><span>숭실대학교 정보과학대학원<br>소프트웨어 공학</span></div>             
+              <div class="profile-row"><b>학력</b><span>숭실대학교 정보과학대학원<br class="mobile-only-br">소프트웨어 공학</span></div>
               <div class="profile-row"><b>자격</b><span class="cert-list">CSTS 일반등급 · 정보처리기사 · 정보처리산업기사 · 정보기기운용기능사</span></div>
             </div>
             <div class="chips" aria-label="Core keywords">
