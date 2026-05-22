@@ -526,137 +526,52 @@
     content: "";
     display: none;
   }
-
-    .table-scroll {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.test-case-table {
-  min-width: 720px;
-}
-
-@media (max-width: 640px) {
-  .table-scroll {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .test-case-table,
-  .test-case-table thead,
-  .test-case-table tbody,
-  .test-case-table tr,
-  .test-case-table th,
-  .test-case-table td {
-    display: revert;
-  }
-
-  .test-case-table {
-    width: 100%;
-    min-width: 680px;
-    border-collapse: collapse;
-    table-layout: fixed;
-    font-size: 12px;
-  }
-
-  .test-case-table thead {
-    display: table-header-group;
-  }
-
-  .test-case-table tr {
-    display: table-row;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;
-  }
-
-  .test-case-table th,
-  .test-case-table td {
-    display: table-cell;
-    padding: 10px 8px;
-    border-bottom: 1px solid var(--line);
-    text-align: center;
-    vertical-align: middle;
-    white-space: normal;
-  }
-
-  .test-case-table td::before {
-    content: none;
-  }
-
-  .test-case-table th:nth-child(1),
-  .test-case-table td:nth-child(1) {
-    width: 18%;
-    white-space: nowrap;
-  }
-
-  .test-case-table th:nth-child(2),
-  .test-case-table td:nth-child(2) {
-    width: 30%;
-    text-align: left;
-  }
-
-  .test-case-table th:nth-child(3),
-  .test-case-table td:nth-child(3) {
-    width: 24%;
-  }
-
-  .test-case-table th:nth-child(4),
-  .test-case-table td:nth-child(4) {
-    width: 14%;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .test-case-table th:nth-child(5),
-  .test-case-table td:nth-child(5) {
-    width: 14%;
-    text-align: center;
-    white-space: nowrap;
-  }
 }
   /* Test Result Dashboard 표 - PC Status 열 보이게 조정 */
   .test-table {
     table-layout: fixed;
-    width: 100%;
   }
   
   .test-table th,
   .test-table td {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 10px 6px;
+    font-size: 12px;
   }
   
   .test-table th:nth-child(1),
   .test-table td:nth-child(1) {
-    width: 18%;
+    width: 17%;
+    white-space: nowrap;
   }
   
   .test-table th:nth-child(2),
   .test-table td:nth-child(2) {
-    width: 31%;
+    width: 30%;
   }
   
   .test-table th:nth-child(3),
   .test-table td:nth-child(3) {
-    width: 23%;
+    width: 22%;
   }
   
   .test-table th:nth-child(4),
   .test-table td:nth-child(4) {
-    width: 13%;
+    width: 14%;
     text-align: center;
     white-space: nowrap;
   }
   
   .test-table th:nth-child(5),
   .test-table td:nth-child(5) {
-    width: 15%;
+    width: 17%;
     text-align: center;
     white-space: nowrap;
-  }        
+  }
+  
+  .test-table .priority,
+  .test-table .badge-status {
+    white-space: nowrap;
+  } 
 }
 
     .bug-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -924,63 +839,11 @@
       border-top: 1px solid rgba(217,154,0,0.18);
     }
 
-
-        footer {
+    footer {
       background: #fff8df;
       color: #6c5e3e;
       border-top: 1px solid rgba(217,154,0,0.18);
-    }
-
-    @media (min-width: 641px) {
-      table[aria-label="Sample test case table"] {
-        width: 100% !important;
-        table-layout: fixed !important;
-        border-collapse: collapse !important;
-      }
-
-      table[aria-label="Sample test case table"] th,
-      table[aria-label="Sample test case table"] td {
-        display: table-cell !important;
-        padding: 10px 6px !important;
-        vertical-align: middle !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-
-      table[aria-label="Sample test case table"] th:nth-child(1),
-      table[aria-label="Sample test case table"] td:nth-child(1) {
-        width: 18% !important;
-      }
-
-      table[aria-label="Sample test case table"] th:nth-child(2),
-      table[aria-label="Sample test case table"] td:nth-child(2) {
-        width: 29% !important;
-      }
-
-      table[aria-label="Sample test case table"] th:nth-child(3),
-      table[aria-label="Sample test case table"] td:nth-child(3) {
-        width: 22% !important;
-      }
-
-      table[aria-label="Sample test case table"] th:nth-child(4),
-      table[aria-label="Sample test case table"] td:nth-child(4) {
-        width: 14% !important;
-        text-align: center !important;
-        white-space: nowrap !important;
-      }
-
-      table[aria-label="Sample test case table"] th:nth-child(5),
-      table[aria-label="Sample test case table"] td:nth-child(5) {
-        width: 17% !important;
-        text-align: center !important;
-        white-space: nowrap !important;
-        display: table-cell !important;
-      }
-
-      table[aria-label="Sample test case table"] .badge-status {
-        display: inline-flex !important;
-        white-space: nowrap !important;
-      }
+    }    
     }
   </style>
 </head>
