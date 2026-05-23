@@ -527,57 +527,49 @@
     display: none;
   }
   /* Test Result Dashboard 표 - PC 컬럼 폭 정리 */
-  @media (min-width: 901px) {
-  .chart-card {
-    overflow: visible;
-  }
-
   .test-table {
     width: 100%;
     table-layout: fixed;
-    border-collapse: collapse;
   }
-
+  
   .test-table th,
   .test-table td {
-    padding: 10px 4px;
-    font-size: 11px;
-    box-sizing: border-box;
+    padding: 10px 5px;
+    font-size: 12px;
   }
-
+  
   .test-table th:nth-child(1),
   .test-table td:nth-child(1) {
-    width: 16%;
+    width: 17%;
     white-space: nowrap;
   }
-
+  
   .test-table th:nth-child(2),
   .test-table td:nth-child(2) {
-    width: 27%;
+    width: 31%;
   }
-
+  
   .test-table th:nth-child(3),
   .test-table td:nth-child(3) {
-    width: 16%;
+    width: 18%;
   }
-
+  
   .test-table th:nth-child(4),
   .test-table td:nth-child(4) {
-    width: 16%;
+    width: 15%;
     text-align: center;
     white-space: nowrap;
   }
-
+  
   .test-table th:nth-child(5),
   .test-table td:nth-child(5) {
-    width: 25%;
+    width: 19%;
     text-align: center;
     white-space: nowrap;
   }
-
+  
   .test-table .priority,
   .test-table .badge-status {
-    display: inline-flex;
     white-space: nowrap;
   }
 }
