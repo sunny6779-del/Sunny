@@ -915,34 +915,40 @@
   }
   
   /* 모바일 버전: 카드형 표시 */
+  /* Test Result Dashboard 표 - 모바일 전용 */
   @media (max-width: 900px) {
+    .test-table {
+      display: block;
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: auto;
+      margin-top: 18px;
+    }
+  
     .test-table thead {
       display: none;
     }
   
-    .test-table,
-    .test-table tbody,
-    .test-table tr,
-    .test-table td {
+    .test-table tbody {
       display: block;
       width: 100%;
     }
   
-    .test-table {
-      border-collapse: separate;
-      border-spacing: 0;
-      table-layout: auto;
-    }
-  
     .test-table tr {
+      display: block;
+      width: 100%;
       margin-bottom: 12px;
       padding: 14px;
       border: 1px solid var(--line);
       border-radius: 16px;
       background: #fff;
+      box-sizing: border-box;
     }
   
     .test-table td {
+      display: block;
+      width: 100%;
       border: none;
       padding: 0;
       text-align: left;
@@ -972,6 +978,7 @@
       font-weight: 700;
       color: #666;
       margin-bottom: 10px;
+      line-height: 1.4;
       word-break: keep-all;
       overflow-wrap: break-word;
     }
