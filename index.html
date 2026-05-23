@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-sctable-scrollle=1.0" />
   <title>김혜선 QA Engineer Portfolio Mockup · White Yellow Theme</title>
   <style>
     :root {
@@ -845,83 +845,8 @@
       border-top: 1px solid rgba(217,154,0,0.18);
     }   
 
-    @media (max-width: 640px) {
-      .test-table thead {
-        display: none;
-      }
-    
-      .test-table,
-      .test-table tbody,
-      .test-table tr,
-      .test-table td {
-        display: block;
-        width: 100%;
-      }
-    
-      .test-table tr {
-        margin-bottom: 12px;
-        padding: 14px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: #fff;
-      }
-    
-      .test-table td {
-        border: none;
-        padding: 0;
-        text-align: left;
-        white-space: normal;
-      }
-    
-      .test-table td:nth-child(1) {
-        font-size: 12px;
-        font-weight: 800;
-        color: #777;
-        margin-bottom: 5px;
-      }
-    
-      .test-table td:nth-child(2) {
-        width: 100%;
-        font-size: 14px;
-        font-weight: 900;
-        color: #222;
-        margin-bottom: 7px;
-        line-height: 1.45;
-        word-break: keep-all;
-        overflow-wrap: break-word;
-      }
-    
-      .test-table td:nth-child(3) {
-        width: 100%;
-        font-size: 12px;
-        font-weight: 700;
-        color: #666;
-        margin-bottom: 10px;
-        word-break: keep-all;
-      }
-    
-      .test-table td:nth-child(4),
-      .test-table td:nth-child(5) {
-        display: inline-flex;
-        align-items: center;
-        width: auto;
-        margin-right: 6px;
-        margin-top: 2px;
-      }
-    
-      .test-table .priority,
-      .test-table .badge-status {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 46px;
-        padding: 4px 8px;
-        font-size: 11px;
-        line-height: 1;
-        white-space: nowrap;
-        box-sizing: border-box;
-      }
-
+   
+/*01. About Me · Profile*/      
    .degree-mobile-line {
     display: inline;
   }
@@ -929,6 +854,148 @@
   @media (max-width: 640px) {
     .degree-mobile-line {
       display: block;
+    }
+  }
+
+  /* Test Result Dashboard 표 전용 최종 정리 */  
+  /* PC 버전: 5열 표 형태 유지 */
+  @media (min-width: 901px) {
+    .test-table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+  
+    .test-table th,
+    .test-table td {
+      padding: 10px 4px;
+      font-size: 11px;
+      line-height: 1.35;
+      box-sizing: border-box;
+      vertical-align: middle;
+    }
+  
+    .test-table th:nth-child(1),
+    .test-table td:nth-child(1) {
+      width: 16%;
+      white-space: nowrap;
+    }
+  
+    .test-table th:nth-child(2),
+    .test-table td:nth-child(2) {
+      width: 27%;
+    }
+  
+    .test-table th:nth-child(3),
+    .test-table td:nth-child(3) {
+      width: 16%;
+    }
+  
+    .test-table th:nth-child(4),
+    .test-table td:nth-child(4) {
+      width: 16%;
+      text-align: center;
+      white-space: nowrap;
+    }
+  
+    .test-table th:nth-child(5),
+    .test-table td:nth-child(5) {
+      width: 25%;
+      text-align: center;
+      white-space: nowrap;
+    }
+  
+    .test-table .priority,
+    .test-table .badge-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+  }
+  
+  /* 모바일 버전: 카드형 표시 */
+  @media (max-width: 900px) {
+    .test-table thead {
+      display: none;
+    }
+  
+    .test-table,
+    .test-table tbody,
+    .test-table tr,
+    .test-table td {
+      display: block;
+      width: 100%;
+    }
+  
+    .test-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: auto;
+    }
+  
+    .test-table tr {
+      margin-bottom: 12px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+    }
+  
+    .test-table td {
+      border: none;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
+      box-sizing: border-box;
+    }
+  
+    .test-table td:nth-child(1) {
+      font-size: 12px;
+      font-weight: 800;
+      color: #777;
+      margin-bottom: 5px;
+    }
+  
+    .test-table td:nth-child(2) {
+      font-size: 14px;
+      font-weight: 900;
+      color: #222;
+      margin-bottom: 7px;
+      line-height: 1.45;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+  
+    .test-table td:nth-child(3) {
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      margin-bottom: 10px;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+  
+    .test-table td:nth-child(4),
+    .test-table td:nth-child(5) {
+      display: inline-flex;
+      align-items: center;
+      width: auto;
+      margin-right: 6px;
+      margin-top: 2px;
+    }
+  
+    .test-table .priority,
+    .test-table .badge-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 46px;
+      padding: 4px 8px;
+      font-size: 11px;
+      line-height: 1;
+      white-space: nowrap;
+      box-sizing: border-box;
     }
   }
       
