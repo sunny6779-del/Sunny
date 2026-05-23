@@ -845,82 +845,60 @@
       border-top: 1px solid rgba(217,154,0,0.18);
     }   
 
-    @media (max-width: 640px) {
-      .test-table thead {
-        display: none;
+    @media (min-width: 901px) {
+      .chart-card {
+        overflow: visible;
       }
     
-      .test-table,
-      .test-table tbody,
-      .test-table tr,
-      .test-table td {
-        display: block;
+      .test-table {
         width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
       }
     
-      .test-table tr {
-        margin-bottom: 12px;
-        padding: 14px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: #fff;
-      }
-    
+      .test-table th,
       .test-table td {
-        border: none;
-        padding: 0;
-        text-align: left;
-        white-space: normal;
+        padding: 10px 4px;
+        font-size: 11px;
+        box-sizing: border-box;
       }
     
+      .test-table th:nth-child(1),
       .test-table td:nth-child(1) {
-        font-size: 12px;
-        font-weight: 800;
-        color: #777;
-        margin-bottom: 5px;
+        width: 16%;
+        white-space: nowrap;
       }
     
+      .test-table th:nth-child(2),
       .test-table td:nth-child(2) {
-        width: 100%;
-        font-size: 14px;
-        font-weight: 900;
-        color: #222;
-        margin-bottom: 7px;
-        line-height: 1.45;
-        word-break: keep-all;
-        overflow-wrap: break-word;
+        width: 27%;
       }
     
+      .test-table th:nth-child(3),
       .test-table td:nth-child(3) {
-        width: 100%;
-        font-size: 12px;
-        font-weight: 700;
-        color: #666;
-        margin-bottom: 10px;
-        word-break: keep-all;
+        width: 16%;
       }
     
-      .test-table td:nth-child(4),
+      .test-table th:nth-child(4),
+      .test-table td:nth-child(4) {
+        width: 16%;
+        text-align: center;
+        white-space: nowrap;
+      }
+    
+      .test-table th:nth-child(5),
       .test-table td:nth-child(5) {
-        display: inline-flex;
-        align-items: center;
-        width: auto;
-        margin-right: 6px;
-        margin-top: 2px;
+        width: 25%;
+        text-align: center;
+        white-space: nowrap;
       }
     
       .test-table .priority,
       .test-table .badge-status {
         display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 46px;
-        padding: 4px 8px;
-        font-size: 11px;
-        line-height: 1;
         white-space: nowrap;
-        box-sizing: border-box;
       }
+    }
 
    .degree-mobile-line {
     display: inline;
