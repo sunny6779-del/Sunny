@@ -914,95 +914,89 @@
     }
   }
   
-  /* 모바일 버전: 카드형 표시 */
   /* Test Result Dashboard 표 - 모바일 전용 */
   @media (max-width: 900px) {
-    .test-table {
-      display: block;
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      table-layout: auto;
-      margin-top: 18px;
+    table.test-table,
+    table.test-table tbody,
+    table.test-table tr,
+    table.test-table td {
+      display: block !important;
+      width: 100% !important;
     }
   
-    .test-table thead {
-      display: none;
+    table.test-table thead {
+      display: none !important;
     }
   
-    .test-table tbody {
-      display: block;
-      width: 100%;
+    table.test-table {
+      table-layout: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
     }
   
-    .test-table tr {
-      display: block;
-      width: 100%;
-      margin-bottom: 12px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: #fff;
-      box-sizing: border-box;
+    table.test-table tr {
+      margin-bottom: 12px !important;
+      padding: 14px !important;
+      border: 1px solid var(--line) !important;
+      border-radius: 16px !important;
+      background: #fff !important;
+      box-sizing: border-box !important;
     }
   
-    .test-table td {
-      display: block;
-      width: 100%;
-      border: none;
-      padding: 0;
-      text-align: left;
-      white-space: normal;
-      box-sizing: border-box;
+    table.test-table td {
+      border: none !important;
+      padding: 0 !important;
+      text-align: left !important;
+      white-space: normal !important;
+      box-sizing: border-box !important;
     }
   
-    .test-table td:nth-child(1) {
-      font-size: 12px;
-      font-weight: 800;
-      color: #777;
-      margin-bottom: 5px;
+    table.test-table td:nth-child(1) {
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      color: #777 !important;
+      margin-bottom: 5px !important;
     }
   
-    .test-table td:nth-child(2) {
-      font-size: 14px;
-      font-weight: 900;
-      color: #222;
-      margin-bottom: 7px;
-      line-height: 1.45;
-      word-break: keep-all;
-      overflow-wrap: break-word;
+    table.test-table td:nth-child(2) {
+      font-size: 14px !important;
+      font-weight: 900 !important;
+      color: #222 !important;
+      line-height: 1.45 !important;
+      margin-bottom: 6px !important;
+      word-break: keep-all !important;
+      overflow-wrap: break-word !important;
     }
   
-    .test-table td:nth-child(3) {
-      font-size: 12px;
-      font-weight: 700;
-      color: #666;
-      margin-bottom: 10px;
-      line-height: 1.4;
-      word-break: keep-all;
-      overflow-wrap: break-word;
+    table.test-table td:nth-child(3) {
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      color: #666 !important;
+      line-height: 1.4 !important;
+      margin-bottom: 8px !important;
+      word-break: keep-all !important;
+      overflow-wrap: break-word !important;
     }
   
-    .test-table td:nth-child(4),
-    .test-table td:nth-child(5) {
-      display: inline-flex;
-      align-items: center;
-      width: auto;
-      margin-right: 6px;
-      margin-top: 2px;
+    table.test-table td:nth-child(4),
+    table.test-table td:nth-child(5) {
+      display: inline-flex !important;
+      align-items: center !important;
+      width: auto !important;
+      margin-right: 6px !important;
     }
   
-    .test-table .priority,
-    .test-table .badge-status {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 46px;
-      padding: 4px 8px;
-      font-size: 11px;
-      line-height: 1;
-      white-space: nowrap;
-      box-sizing: border-box;
+    table.test-table .priority,
+    table.test-table .badge-status {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-width: 46px !important;
+      padding: 4px 8px !important;
+      font-size: 11px !important;
+      line-height: 1 !important;
+      white-space: nowrap !important;
+      box-sizing: border-box !important;
     }
   }
       
